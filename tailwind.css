@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tp-blue: #32cffa;
+  --color-tp-green: #a7fa32;
+  --color-tp-orange: #fa9332;
+  --color-tp-purple: #d532fa;
+  --color-tp-sec-blue: #56727a;
+  --color-tp-sec-purple: #9758a6;
+  --color-tp-primary: var(--color-tp-blue);
+  --color-tp-secondary: var(--color-tp-purple);
+
+  --gradient-white: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, var(--color-white) 10%, transparent) 0,
+    color-mix(in oklab, var(--color-white) 10%, transparent) 2px,
+    transparent 0,
+    transparent 50%
+  );
+
+  --gradient-blue: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, var(--color-tp-blue) 10%, transparent) 0,
+    color-mix(in oklab, var(--color-tp-blue) 10%, transparent) 2px,
+    transparent 0,
+    transparent 50%
+  );
+
+  --gradient-green: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, var(--color-tp-green) 10%, transparent) 0,
+    color-mix(in oklab, var(--color-tp-green) 10%, transparent) 2px,
+    transparent 0,
+    transparent 50%
+  );
+
+  --gradient-orange: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, var(--color-tp-orange) 10%, transparent) 0,
+    color-mix(in oklab, var(--color-tp-orange) 10%, transparent) 2px,
+    transparent 0,
+    transparent 50%
+  );
+
+  --gradient-purple: repeating-linear-gradient(
+    315deg,
+    color-mix(in oklab, var(--color-tp-purple) 10%, transparent) 0,
+    color-mix(in oklab, var(--color-tp-purple) 10%, transparent) 2px,
+    transparent 0,
+    transparent 50%
+  );
+
+  --color-grid: var(--color-tp-blue);
+  --square-size: 10px;
+
+  --gradient-squares: 
+  repeating-linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--color-grid) 30%, transparent) 0,
+    color-mix(in oklab, var(--color-grid) 30%, transparent) 1px,
+    transparent 1px,
+    transparent var(--square-size)
+  ),
+  repeating-linear-gradient(
+    0deg,
+    color-mix(in oklab, var(--color-grid) 30%, transparent) 0,
+    color-mix(in oklab, var(--color-grid) 30%, transparent) 1px,
+    transparent 1px,
+    transparent var(--square-size)
+  );
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-[1440px];
+  }
+
+  kbd {
+    @apply inline-flex items-center px-2 py-1 font-mono text-sm font-semibold text-white bg-white/10 border border-b-3 border-white rounded-md;
+  }
+
+  .section-decoration {
+    @apply relative mb-48 bg-tp-blue;
+
+    &::before {
+      @apply absolute h-40 w-full bg-tp-blue left-0 -bottom-40;
+      content: "";
+      clip-path: polygon(0 0, calc(100% - 5em) 0, calc(100% - 5em) 5em, 75% 5em, calc(75% - 5em) 5em, calc(75% - 5em) 10em, 0 10em);
+    }
+  }
+
+  .section {
+    @apply relative mx-auto p-8 border border-white/20 max-w-[1440px];
+    background-image: var(--gradient-white);
+    background-size: 10px 10px;
+
+    &[type="info"] {
+      @apply border-tp-blue/20;
+      background-image: var(--gradient-blue);
+
+      &:before,
+      &:after {
+        @apply border-tp-blue;
+      }
+
+      del, em, ins, q, strong, u {
+        @apply text-tp-blue;
+      }
+    }
+    &[type="warning"] {
+      @apply border-tp-orange/20;
+      background-image: var(--gradient-orange);
+
+      &:before,
+      &:after {
+        @apply border-tp-orange;
+      }
+
+      del, em, ins, q, strong, u {
+        @apply text-tp-orange;
+      }
+    }
+    &[type="success"] {
+      @apply border-tp-green/20;
+      background-image: var(--gradient-green);
+
+      &:before,
+      &:after {
+        @apply border-tp-green;
+      }
+
+      del, em, ins, q, strong, u {
+        @apply text-tp-green;
+      }
+    }
+    &[type="strange"] {
+      @apply border-tp-purple/20;
+      background-image: var(--gradient-purple);
+
+      &:before,
+      &:after {
+        @apply border-tp-purple;
+      }
+
+      del, em, ins, q, strong, u {
+        @apply text-tp-purple;
+      }
+    }
+    &[type="blueprint"] {
+      --color-grid: var(--color-white);
+      @apply border-white/20 bg-tp-blue/20 text-shadow-lg;
+      background-image: repeating-linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--color-grid) 20%, transparent) 0,
+        color-mix(in oklab, var(--color-grid) 20%, transparent) 1px,
+        transparent 1px,
+        transparent var(--square-size)
+      ),
+      repeating-linear-gradient(
+        0deg,
+        color-mix(in oklab, var(--color-grid) 20%, transparent) 0,
+        color-mix(in oklab, var(--color-grid) 20%, transparent) 1px,
+        transparent 1px,
+        transparent var(--square-size)
+      );
+
+      &:before,
+      &:after {
+        @apply border-none;
+      }
+
+      del, em, ins, q, strong, u {
+        @apply text-white;
+      }
+    }
+
+    &:before,
+    &:after {
+      @apply absolute content-[""] -z-0 h-8 w-8;
+    }
+    &:before {
+      @apply top-4 left-4 border-l-2 border-t-2;
+    }
+    &:after {
+      @apply bottom-4 right-4 border-b-2;
+    }
+  }
+
+  .btn {
+    @apply relative py-4 px-8 border border-white/20 font-semibold uppercase cursor-pointer transition-colors duration-300 ease-in-out;
+    background-position: 5px 5px;
+    background-size: 10px 10px;
+
+    &.primary {
+      @apply border-tp-blue/20;
+      background-image: var(--gradient-blue);
+
+      &:hover {
+        @apply border-tp-blue/30;
+        background-image: var(--gradient-squares);
+      }
+      &:active {
+        @apply bg-tp-blue text-black;
+      }
+    }
+  }
+}

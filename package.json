@@ -1,0 +1,15 @@
+{
+  "name": "tristantheb-production-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tw:watch": "npx tailwindcss -i ./tailwind.css -o ./style.css --watch",
+    "tw:build": "npx tailwindcss -i ./tailwind.css -o ./style.css --minify"
+  },
+  "author": "",
+  "license": "UNLICENCED",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.4"
+  }
+}
