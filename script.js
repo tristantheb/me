@@ -3,7 +3,9 @@ async function animateContent(dom_target, new_content) {
     let index = 0;
     const interval = setInterval(() => {
       if (index < dom_target.textContent.length) {
-        const content = dom_target.innerHTML.replace(/<[^>]*>/g, '');
+        let html = dom_target.innerHTML;
+        let doc = new DOMParser().parseFromString(html, 'text/html');
+        let content = doc.body.textContent || '';
         dom_target.innerHTML = content.slice(0, content.length - index);
         index++;
       } else {
