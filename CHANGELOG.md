@@ -1,5 +1,15 @@
 # Changelog
 
+## [16.2.2](https://github.com/tristantheb/me/compare/v16.2.1...v16.2.2) (2025-12-02)
+
+
+### CI/CD changes
+
+* **forks:** adding forks auto update ([#8](https://github.com/tristantheb/me/issues/8)) ([d6b0844](https://github.com/tristantheb/me/commit/d6b0844eaa979711496ea91d0e6e71d0c9cfe52d))
+* move ci from other repo ([#12](https://github.com/tristantheb/me/issues/12)) ([04ef5d0](https://github.com/tristantheb/me/commit/04ef5d0b806adfedf1ff3c20801cfd1ddd8df31d))
+* **security:** set sha lock version instead of classic version ([#9](https://github.com/tristantheb/me/issues/9)) ([5ae1428](https://github.com/tristantheb/me/commit/5ae142877bcff5ff691be8f1fa643337f5c8157e))
+* use variables instead ([#11](https://github.com/tristantheb/me/issues/11)) ([c5841da](https://github.com/tristantheb/me/commit/c5841da10f11b46811da1511dfac76476c7fbcd3))
+
 ## [16.2.1](https://github.com/tristantheb/me/compare/v16.2.0...v16.2.1) (2025-11-11)
 
 
