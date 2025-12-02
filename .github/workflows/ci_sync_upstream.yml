@@ -15,16 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - fork: 'tristantheb/content'
-            upstream: 'https://github.com/mdn/content.git'
-            branch: 'main'
-          - fork: 'tristantheb/fred'
-            upstream: 'https://github.com/mdn/fred.git'
-            branch: 'main'
-          - fork: 'tristantheb/translated-content'
-            upstream: 'https://github.com/mdn/translated-content.git'
-            branch: 'main'
+        include: ${{ fromJson(vars.FORKS_MATRIX) }}
 
     env:
       PAT: ${{ secrets.FORKS_PAT }}
