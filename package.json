@@ -10,6 +10,6 @@
   "author": "Tristan DENAGE <tristantheb@users.noreply.github.com>",
   "license": "UNLICENCED",
   "dependencies": {
-    "@tailwindcss/cli": "4.2.1"
+    "@tailwindcss/cli": "4.3.0"
   }
 }
